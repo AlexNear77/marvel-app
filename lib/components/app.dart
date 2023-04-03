@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:password_generator_app/pages/config.dart';
 import 'package:password_generator_app/pages/home.dart';
+import 'package:password_generator_app/pages/list_character.dart';
 
 class MainApp extends StatefulWidget {
   @override
@@ -10,10 +10,7 @@ class MainApp extends StatefulWidget {
 }
 
 class _MainApp extends State<MainApp> {
-  static List<Widget> pages = [
-    Home(),
-    Configuration()
-  ]; // Se coloca Final por que en tiempo de ejecucion (Que este corriendo el programa) no va a cambiar por otro lado CONST mantiene el valir fijo desde antes de hacer la compilacion
+  static List<Widget> pages = [Home(), ListCharacters()];
   static int currentlyIndex = 0;
 
   void changePage(int index) {
@@ -26,8 +23,25 @@ class _MainApp extends State<MainApp> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const Text("Password Generator App"),
-        titleSpacing: 100,
+        backgroundColor: Color.fromARGB(255, 168, 10, 10),
+        title: const Column(
+          children: [
+            Row(
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              children: [
+                Icon(
+                  Icons.menu,
+                  color: Colors.white,
+                ),
+                Text(
+                  "Comic-App",
+                  style: TextStyle(color: Colors.white),
+                ),
+                Icon(Icons.search, color: Colors.white)
+              ],
+            )
+          ],
+        ),
       ),
       body: pages[currentlyIndex],
       bottomNavigationBar: Theme(
@@ -35,10 +49,11 @@ class _MainApp extends State<MainApp> {
         child: BottomNavigationBar(
             onTap: changePage,
             currentIndex: currentlyIndex,
-            items: [
-              BottomNavigationBarItem(label: "Home", icon: Icon(Icons.home)),
+            items: const [
               BottomNavigationBarItem(
-                  label: "Configuration", icon: Icon(Icons.dashboard_customize))
+                  label: "Home", icon: Icon(Icons.home_max_sharp)),
+              BottomNavigationBarItem(
+                  label: "Personajes", icon: Icon(Icons.people_sharp))
             ]),
       ),
     );
