@@ -52,7 +52,7 @@ class _DetailCharacter extends State<DetailCharacter> {
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
               const Text(
-                "Numero de comics: ",
+                "Number of comics: ",
                 style: TextStyle(fontWeight: FontWeight.bold),
               ),
               Text(args.comics)
@@ -62,7 +62,7 @@ class _DetailCharacter extends State<DetailCharacter> {
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
               const Text(
-                "Numero de series: ",
+                "Number of series: ",
                 style: TextStyle(fontWeight: FontWeight.bold),
               ),
               Text(args.series)
@@ -72,7 +72,7 @@ class _DetailCharacter extends State<DetailCharacter> {
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
               const Text(
-                "Numero de stories: ",
+                "Number of stories: ",
                 style: TextStyle(fontWeight: FontWeight.bold),
               ),
               Text(args.stories)
@@ -82,7 +82,7 @@ class _DetailCharacter extends State<DetailCharacter> {
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
               const Text(
-                "Numero de events:",
+                "Number of events:",
                 style: TextStyle(fontWeight: FontWeight.bold),
               ),
               Text(args.events)

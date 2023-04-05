@@ -12,7 +12,6 @@ class CharacterController {
   List<Character> characters = [];
 
   Future<List<Character>> getCharacteres() async {
-    print("Call Api");
     var url = Uri.http('gateway.marvel.com', 'v1/public/characters', {
       'ts': '1',
       'apikey': 'e0bc9c1a8343d95ff84923849c69e8ca',
