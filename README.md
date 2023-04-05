@@ -1,4 +1,4 @@
-# password_generator_app
+# Marvel_app
 
 A new Flutter project.
 
