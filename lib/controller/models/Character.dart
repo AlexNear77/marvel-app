@@ -14,7 +14,9 @@ class Character {
 //Directamente del JSON de la API
   Character.fromJson(Map<String, dynamic> jsonCharacter) {
     name = jsonCharacter["name"];
-    image = jsonCharacter["thumbnail"]["path"];
+    image = jsonCharacter["thumbnail"]["path"] +
+        "." +
+        jsonCharacter["thumbnail"]["extension"];
     description = jsonCharacter["description"];
     comics = jsonCharacter["comics"]["returned"].toString();
     series = jsonCharacter["series"]["returned"].toString();

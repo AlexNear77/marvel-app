@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:password_generator_app/controller/User.dart';
+import 'package:password_generator_app/controller/models/Character.dart';
 
 class DetailCharacter extends StatefulWidget {
   @override
@@ -11,9 +12,11 @@ class DetailCharacter extends StatefulWidget {
 class _DetailCharacter extends State<DetailCharacter> {
   @override
   Widget build(BuildContext context) {
-    User args = ModalRoute.of(context)?.settings.arguments as User;
-    print(args);
-    String userName = args.name;
+    final Character args =
+        ModalRoute.of(context)!.settings.arguments as Character;
+    print(args.name);
+    print("oa");
+    String characterName = args.name;
     return Scaffold(
       appBar: AppBar(
         backgroundColor: const Color.fromARGB(255, 168, 10, 10),
@@ -26,29 +29,65 @@ class _DetailCharacter extends State<DetailCharacter> {
             width: 200,
             child: ClipRRect(
               borderRadius: BorderRadius.circular(40),
-              child: Text("imagen"),
+              child: Image.network(args.image),
             ),
           ),
           Container(
             padding: EdgeInsets.only(top: 15),
-            child: Text("Ironman",
+            child: Text(characterName,
                 style: TextStyle(fontSize: 24, fontWeight: FontWeight.bold)),
+          ),
+          const SizedBox(
+            height: 10,
+          ),
+          Container(
+            padding: EdgeInsets.only(left: 15, right: 15),
+            child: Text(args.description,
+                style: TextStyle(color: Colors.grey, fontSize: 16)),
+          ),
+          const SizedBox(
+            height: 12,
           ),
           Row(
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
-              Text(
-                "Numero de comics:",
-                style: const TextStyle(fontWeight: FontWeight.bold),
+              const Text(
+                "Numero de comics: ",
+                style: TextStyle(fontWeight: FontWeight.bold),
               ),
-              Text("12")
+              Text(args.comics)
             ],
           ),
-          Center(
-            child: Text(
-                "Descriptcion lorem lorem lorem lorem lorem lorem lorem lorem lorem lorem lorem lorem lorem lorem lorem lorem lorem lorem lorem lorem lorem lorem lorem lorem lorem lorem lorem lorem lorem lorem lorem lorem",
-                style: TextStyle(color: Colors.grey, fontSize: 16)),
-          )
+          Row(
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: [
+              const Text(
+                "Numero de series: ",
+                style: TextStyle(fontWeight: FontWeight.bold),
+              ),
+              Text(args.series)
+            ],
+          ),
+          Row(
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: [
+              const Text(
+                "Numero de stories: ",
+                style: TextStyle(fontWeight: FontWeight.bold),
+              ),
+              Text(args.stories)
+            ],
+          ),
+          Row(
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: [
+              const Text(
+                "Numero de events:",
+                style: TextStyle(fontWeight: FontWeight.bold),
+              ),
+              Text(args.events)
+            ],
+          ),
         ],
       ),
     );

@@ -44,12 +44,6 @@ class _ListCharacters extends State<ListCharacters> {
         return Text("Errors");
       },
     );
-
-    /* Container(
-        child: ListView.separated(
-            itemBuilder: fillListView,
-            separatorBuilder: (context, index) => Divider(),
-            itemCount: users.length)); */
   }
 
   Widget createListView(List<Character> charactere) {
@@ -57,19 +51,20 @@ class _ListCharacters extends State<ListCharacters> {
         itemBuilder: (context, index) {
           return ListTile(
             leading: SizedBox(
-                height: 200,
+                height: 40,
+                width: 40,
                 child: ClipRRect(
                     borderRadius: BorderRadius.circular(50),
-                    child: Text("imagen"))),
+                    child: Image.network(charactere[index].image))),
             trailing: Icon(Icons.arrow_right),
             title: Text(charactere[index].name),
             subtitle: Text(
-              "On sale lorem lorem ",
+              charactere[index].description,
               style: TextStyle(color: Colors.grey, fontSize: 18),
             ),
             onTap: () {
               Navigator.pushNamed(context, 'detail_character',
-                  arguments: User(users[index]));
+                  arguments: charactere[index]);
             },
           );
         },
