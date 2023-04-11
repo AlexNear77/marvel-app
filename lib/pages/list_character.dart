@@ -1,3 +1,5 @@
+import 'dart:ui';
+
 import 'package:flutter/material.dart';
 import 'package:password_generator_app/controller/User.dart';
 import 'package:password_generator_app/controller/character.controller.dart';
@@ -60,7 +62,8 @@ class _ListCharacters extends State<ListCharacters> {
             title: Text(charactere[index].name),
             subtitle: Text(
               charactere[index].description,
-              style: TextStyle(color: Colors.grey, fontSize: 18),
+              style: const TextStyle(color: Colors.grey, fontSize: 18),
+              maxLines: 2,
             ),
             onTap: () {
               Navigator.pushNamed(context, 'detail_character',

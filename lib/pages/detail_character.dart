@@ -14,8 +14,11 @@ class _DetailCharacter extends State<DetailCharacter> {
   Widget build(BuildContext context) {
     final Character args =
         ModalRoute.of(context)!.settings.arguments as Character;
-    print(args.name);
-    print("oa");
+
+    print("oAAAA");
+
+    List<dynamic> a = args.seriesList;
+    print(a[0]["name"]);
     String characterName = args.name;
     return Scaffold(
       appBar: AppBar(
@@ -88,8 +91,32 @@ class _DetailCharacter extends State<DetailCharacter> {
               Text(args.events)
             ],
           ),
+          listStories(args.seriesList)
         ],
       ),
     );
   }
+}
+
+Widget listStories(List<dynamic> listStories) {
+  if (listStories.length == 0) {
+    return Text("No have stories");
+  }
+  return Column(
+    children: [
+      SizedBox(height: 15),
+      Text("Series:"),
+      SizedBox(height: 10),
+      if (listStories.length >= 1) Text(listStories[0]["name"]),
+      if (listStories.length >= 2) Text(listStories[1]["name"]),
+      if (listStories.length >= 3) Text(listStories[2]["name"]),
+    ],
+  );
+  /* ListView.separated(
+      itemBuilder: (context, index) {
+        return ListTile(
+            title: Text("storie:"), subtitle: listStories[index]["name"]);
+      },
+      separatorBuilder: (context, index) => Divider(),
+      itemCount: listStories.length); */
 }
